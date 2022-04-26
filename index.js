@@ -22,6 +22,10 @@ var client = new Twitter({
 
 });
 
+app.get("/",(req,res)=>{
+    res.send("I am alive");
+})
+
 app.post('/terimummy',jsonParser,urlencodedParser,(req,res)=>
 
 client.post('statuses/update', {status:`${req.body.tweet} ${Math.round(Math.random(),2)}`}, function(error, tweet, response){
@@ -30,7 +34,7 @@ client.post('statuses/update', {status:`${req.body.tweet} ${Math.round(Math.rand
     }
     else
     {
-        res.status(200).send(tweet);
+        res.status(200).send("Done");
     }})
 );
 
